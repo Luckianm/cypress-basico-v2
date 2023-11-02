@@ -19,6 +19,7 @@
 
 > - Modifico o arquivo `cypress.json` conforme abaixo para sobrescrever o viewport padrao do cypress.
 
+```
 `{
 
 "pluginsFile": false,
@@ -30,7 +31,7 @@
 }`
 
   
-
+```
 **Comandos**
 
 Estrutura basica para a suite de testes:
