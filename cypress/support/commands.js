@@ -1,8 +1,11 @@
 Cypress.Commands.add('fillMandatoryFieldsAndSubmit', user => {
+    const longText = Cypress._.repeat('abacate ',35)
+    cy.clock()
     cy.get('#firstName').type('Gustavo')
     cy.get('#lastName').type('Soares')
     cy.get('#email').type('gbsouzaofc@gmail.com')
-    cy.get('#open-text-area').type('aaaaaaaaaaaaaaabbbbbbbbbbbbbbbbccccccccccsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssscc', {delay:0})
+    cy.get('#open-text-area').type(longText, {delay:0})
     cy.contains('button', 'Enviar').click()
     cy.get('.success').should('be.visible')
+    cy.tick(3000).get('.success').should('not.be.visible')
 })
